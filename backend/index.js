@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const port = 3000;
 const getColors = require("get-image-colors");
-
+const imgur = require('./imgurPuller/imgurpuller')
 app.use(express.json());
 
 app.post("/color", (req, res) => {
@@ -15,6 +15,13 @@ app.post("/color", (req, res) => {
   });
   Promise.all(holdingArr).then((completed) =>  res.status(200).json({ message: completed }));
 });
+
+app.get("/imgur", (req, res) => {
+  imgur();
+  res.send("Wrong endpoint");
+
+});
+
 
 app.get("/", (req, res) => {
   res.send("Wrong endpoint");
