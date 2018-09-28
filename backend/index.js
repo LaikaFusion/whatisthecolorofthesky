@@ -1,9 +1,17 @@
 const express = require("express");
+
 const app = express();
+
+
 const port = 3000;
 const getColors = require("get-image-colors");
+
 const imgur = require('./imgurPuller/imgurpuller')
+const sky = require("./routers/skyRouter");
+
+app.use(cors());
 app.use(express.json());
+app.use(helmet());
 
 app.post("/color", (req, res) => {
   let holdingArr = req.body.images.split(",").map(async (e, i) => {
@@ -28,3 +36,4 @@ app.get("/", (req, res) => {
 });
 
 app.listen(port, () => console.log(`App listening on port ${port}!`));
+

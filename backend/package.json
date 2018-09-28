@@ -2,17 +2,36 @@
   "name": "backend",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/LaikaFusion/whatisthecolorofthesky",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LaikaFusion/whatisthecolorofthesky.git"
+  },
   "license": "MIT",
   "dependencies": {
-    "dotenv": "^6.0.0",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "express-router": "0.0.1",
+    "helmet": "^3.13.0",
+    "knex": "^0.15.2",
+    "node": "^10.11.0",
+    "sqlite": "^3.0.0",
+    "sqlite3": "^4.0.2",
+     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "get-image-colors": "^1.8.1"
   },
+  "bugs": {
+    "url": "https://github.com/LaikaFusion/whatisthecolorofthesky/issues"
+  },
+  "homepage": "https://github.com/LaikaFusion/whatisthecolorofthesky#readme",
   "devDependencies": {
     "nodemon": "^1.18.4"
   },
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js"
-  }
+  },
+  "keywords": [],
+  "author": "",
+  "description": ""
 }
