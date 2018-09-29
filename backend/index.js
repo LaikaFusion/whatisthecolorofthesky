@@ -9,6 +9,7 @@ const getColors = require("get-image-colors");
 
 const imgur = require("./imgurPuller/imgurpuller");
 const sky = require("./routers/skyRouter");
+const colorCompare = require('./colorcompare');
 
 app.use(cors());
 app.use(express.json());
@@ -45,5 +46,5 @@ app.get("/imgur", (req, res) => {
 app.get("/", (req, res) => {
   res.send("Wrong endpoint");
 });
-
+colorCompare.getAllColors();
 app.listen(port, () => console.log(`App listening on port ${port}!`));

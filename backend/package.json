@@ -9,14 +9,15 @@
   "license": "MIT",
   "dependencies": {
     "cors": "^2.8.4",
+    "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "express-router": "0.0.1",
+    "get-image-colors": "^1.8.1",
     "helmet": "^3.13.0",
     "knex": "^0.15.2",
+    "nearest-color": "^0.4.2",
     "node": "^10.11.0",
-    "sqlite3": "^4.0.2",
-     "dotenv": "^6.0.0",
-    "get-image-colors": "^1.8.1"
+    "sqlite3": "^4.0.2"
   },
   "bugs": {
     "url": "https://github.com/LaikaFusion/whatisthecolorofthesky/issues"
