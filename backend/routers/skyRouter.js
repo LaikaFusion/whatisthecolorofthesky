@@ -4,6 +4,11 @@ const dbHelpers = require("../dbHelpers/helpers");
 const colorCompare = require("../colorcompare");
 const getColors = require("get-image-colors");
 
+router.get("/view", async (req, res) => {
+  let results = await dbHelpers.getSkies();
+  res.status(200).json(results);
+});
+
 router.post("/", async (req, res) => {
   if (!req.body.color || req.body.color.length !== 7) {
     res.status(400).json({ error: "Invalid body" });
