@@ -1753,6 +1753,10 @@ ndarray@^1.0.13:
     iota-array "^1.0.0"
     is-buffer "^1.0.2"
 
+nearest-color@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/nearest-color/-/nearest-color-0.4.2.tgz#6ebd3a859969e76dd834e609beeecef73c3881e0"
+
 needle@^2.2.1:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/needle/-/needle-2.2.4.tgz#51931bff82533b1928b7d1d69e01f1b00ffd2a4e"
