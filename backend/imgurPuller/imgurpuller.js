@@ -9,48 +9,69 @@ const options = {
   }
 };
 
-let imgur = async(pages) => {
-  let imgArray=[]
-  if(!pages){
-    pages=5;
+let imgur = async pages => {
+  let imgArray = [];
+  if (!pages) {
+    pages = 1;
   }
-  for (let i = 0; i <= pages; i++) {
-    try{
-
-      imgArray = await imgurAPIrequest(imgArray,i);
-
-    }
-    catch(err){
+  for (let i = 0; i <= pages-1; i++) {
+    try {
+      imgArray = await imgurAPIrequest(imgArray, i);
+    } catch (err) {
       console.log(err);
       return;
     }
   }
-  console.log(imgArray.length)
-
+  console.log(imgArray.length);
+return imgArray;
 };
 
-imgurAPIrequest=(Arr,page)=>{
-  let holdingArr=[...Arr]
+imgurAPIrequest = async (Arr, page) => {
+  let holdingArr = [...Arr];
   options.path = `/3/gallery/t/sky/${page}`;
-  var req = http.request(options, function(res) {
-    var chunks = [];
-    res.on("data", function(chunk) {
-      chunks.push(chunk);
-    });
-
-    res.on("end", function() {
-      var body = Buffer.concat(chunks);
-       JSON.parse(body).data.items.forEach((e,i)=>{
-         if(!e.images){return;}
-        return e.images.forEach(element => {
-          holdingArr.push(element.link)
-        });
-      });
+  let requestreturn = await httpPromise();
+  requestreturn.data.items.forEach((e, i) => {
+    if (!e.images) {
+      return;
+    }
+    return e.images.forEach(element => {
+      if(RegExp('https:\/\/.*\.(gif|jpg|jpeg|png)').test(element.link)){
+        holdingArr.push(element.link);
+      }
     });
   });
-
-  req.end();
-  console.log(holdingArr);
   return holdingArr;
-}
+};
+
+httpPromise = () => {
+  return new Promise(function(resolve, reject) {
+    var req = http.request(options, function(res) {
+      // reject on bad status
+      if (res.statusCode < 200 || res.statusCode >= 300) {
+        return reject(new Error("statusCode=" + res.statusCode));
+      }
+      // cumulate data
+      var body = [];
+      res.on("data", function(chunk) {
+        body.push(chunk);
+      });
+      // resolve on end
+      res.on("end", function() {
+        try {
+          body = JSON.parse(Buffer.concat(body).toString());
+        } catch (e) {
+          reject(e);
+        }
+        resolve(body);
+      });
+    });
+    // reject on request error
+    req.on("error", function(err) {
+      // This is not a "Second reject", just a different sort of failure
+      reject(err);
+    });
+    // IMPORTANT
+    req.end();
+  });
+};
 module.exports = imgur;

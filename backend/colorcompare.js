@@ -1,6 +1,5 @@
 const dbHelpers = require("./dbHelpers/helpers");
 const nearestColor = require("nearest-color");
-const chroma = require("chroma-js")
 
 let colorList = [];
 
