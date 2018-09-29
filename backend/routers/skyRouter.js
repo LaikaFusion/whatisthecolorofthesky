@@ -39,47 +39,45 @@ router.post("/add", (req, res) => {
     }
   });
   Promise.all(holdingArr)
-    .then( completed => {
-     
-        let dbAdds =  completed.map(async (element, i) => {
-          if (!element) {
-            return;
-          }
-          const colorObj = {};
-          colorObj.url = urlList[i];
-          element.forEach((e, index) => {
-            colorObj[`color${index + 1}`] = e;
-          });
-          try {
-            return await dbHelpers.addSky(colorObj);
-          } catch (err) {
-            console.log(err);
-            return;
-          }
-        });
-        if (res.status === 500) {
+    .then(completed => {
+      let dbAdds = completed.map(async (element, i) => {
+        if (!element) {
           return;
         }
-        Promise.all(dbAdds)
-          .then(val => {
-            let count = 0;
-            val.forEach(e=>{
-              if (!e){
-                count++
-              }
-            })
-            res.status(200).json({ message: `Success with ${count} failures` });
-            return;
-          })
-          .catch(function(err) {
-            if (res.headersSent) {
-              return;
+        const colorObj = {};
+        colorObj.url = urlList[i];
+        element.forEach((e, index) => {
+          colorObj[`color${index + 1}`] = e;
+        });
+        try {
+          return await dbHelpers.addSky(colorObj);
+        } catch (err) {
+          console.log(err);
+          return;
+        }
+      });
+      if (res.status === 500) {
+        return;
+      }
+      Promise.all(dbAdds)
+        .then(val => {
+          let count = 0;
+          val.forEach(e => {
+            if (!e) {
+              count++;
             }
-            res.status(500).json({ error: err });
-            console.log(err);
-            return;
           });
-      
+          res.status(200).json({ message: `Success with ${count} failures` });
+          return;
+        })
+        .catch(function(err) {
+          if (res.headersSent) {
+            return;
+          }
+          res.status(500).json({ error: err });
+          console.log(err);
+          return;
+        });
     })
     .catch(function(err) {
       res.status(500).json({ error: 3 });
