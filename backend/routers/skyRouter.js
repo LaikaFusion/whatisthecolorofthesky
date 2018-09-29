@@ -42,6 +42,9 @@ router.post("/add", (req, res) => {
   Promise.all(holdingArr)
     .then(completed => {
       completed.forEach(async(element,i) => {
+        if(!element){
+          return;
+        }
         const colorObj ={};
         colorObj.url = urlList[i];
         element.forEach((e,index )=> {
