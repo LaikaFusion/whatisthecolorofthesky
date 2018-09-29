@@ -20,6 +20,10 @@ app.use("/sky", sky);
 
 
 app.post("/imgur", async (req, res) => {
+  if(req.body.secretpass !== process.env.CLIENTID){
+    res.status(403).json({error:'invalid pass'});
+    return;
+  }
   if(!req.body.pages){
     req.body.pages = 1;
   }
