@@ -1,18 +1,39 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { HuePicker } from 'react-color';
+import Result from './components/Result/Result';
 
 class App extends Component {
+
+  state = {
+    color: []
+  }
+
+  colorSelection = (color) => {
+    this.setState({color: color.hex})
+    console.log(this.state.color);
+  }
+
+
   render() {
+    console.log()
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="App" style={{color: this.state.color, borderColor: this.state.color}}>
+        <i class="fas fa-cloud"></i>
+          <br /><br /><br /><br />
+          <form onSubmit={this.colorSelection}>
+              <h1>Find Your Sky</h1>
+              <p>Choose a Color:</p>
+              <br /><br />
+            <HuePicker
+              className="picker" 
+              color={this.state.color}
+              onChangeComplete={this.colorSelection}/>
+            <br /><br />
+            <button type="submit">Pick</button>
+            <br /><br />
+          </form>
+          <Result />
       </div>
     );
   }
