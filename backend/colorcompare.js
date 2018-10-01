@@ -1,6 +1,5 @@
 const dbHelpers = require("./dbHelpers/helpers");
 const nearestColor = require("nearest-color");
-const chroma = require("chroma-js")
 
 let colorList = [];
 
@@ -14,11 +13,7 @@ module.exports = {
           nodupObj[element[`color${index + 1}`]] = 0;
         }
       });
-      colorList = Object.keys(nodupObj).map((e,i)=>{
-        // return chroma(e).rgb();
-        return e;
-      });
-      
+      colorList = Object.keys(nodupObj);
     } catch (err) {
       console.log(err);
     }
@@ -26,7 +21,7 @@ module.exports = {
   findNearestColor:  (colorToFind) => {
     try {
       let colorCheck =nearestColor.from(colorList);
-      console.log(colorCheck(colorToFind));
+      return colorCheck(colorToFind);
     } catch (err) {
       console.log(err);
     }
