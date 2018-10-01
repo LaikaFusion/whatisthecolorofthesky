@@ -5,13 +5,13 @@ const db = knex(config.development);
 
 module.exports = {
   getSkies: () => {
-    return db("sky").then(results => {
+    return db("sky_table").then(results => {
       return results;
     });
   },
 
   getSky: id => {
-    return db("sky")
+    return db("sky_table")
       .where({ id: id })
       .first()
       .then(results => {
@@ -19,10 +19,10 @@ module.exports = {
       });
   },
   getAllColors: ()=>{
-    return db("sky").select('color1','color2','color3','color4','color5')
+    return db("sky_table").select('color1','color2','color3','color4','color5')
   },
   addSky: ({ skyObj }) => {
-    return db("sky").insert({
+    return db("sky_table").insert({
       color1: skyObj.color1,
       color2: skyObj.color2,
       color3: skyObj.color3,
