@@ -24,38 +24,36 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.post("/add", async(req, res) => {
+router.post("/add", async (req, res) => {
   let urlList = JSON.parse(req.body.images);
-  let holdingArr =  await addingfunctions.colorArr(urlList);
+  let holdingArr = await addingfunctions.colorArr(urlList);
   Promise.all(holdingArr)
     .then(async completed => {
-      try{
-        let dbAdds = await addingfunctions.dbAdds(completed,urlList);
+      try {
+        let dbAdds = await addingfunctions.dbAdds(completed, urlList);
         Promise.all(dbAdds)
-        .then(val => {
-          let count = 0;
-          val.forEach(e => {
-            if (!e) {
-              count++;
-            }
-          });
-          res.status(200).json({ message: `Success with ${count} failures` });
-          return;
-        })
-        .catch(function(err) {
-          if (res.headersSent) {
+          .then(val => {
+            let count = 0;
+            val.forEach(e => {
+              if (!e) {
+                count++;
+              }
+            });
+            res.status(200).json({ message: `Success with ${count} failures` });
             return;
-          }
-          res.status(500).json({ error: err });
-          console.log(err);
-          return;
-        });
-      }
-      catch(err){
+          })
+          .catch(function(err) {
+            if (res.headersSent) {
+              return;
+            }
+            res.status(500).json({ error: err });
+            console.log(err);
+            return;
+          });
+      } catch (err) {
         console.log(err);
-        return
+        return;
       }
-   
     })
     .catch(function(err) {
       res.status(500).json({ error: 3 });

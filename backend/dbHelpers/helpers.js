@@ -1,7 +1,7 @@
 const knex = require("knex");
 const dbEngine = process.env.DB || 'development';
-const config = require("../knexfile.js");
-const db = knex(config.development);
+const config = require('../knexfile.js')[dbEngine];
+const db = knex(config);
 
 module.exports = {
   getSkies: () => {

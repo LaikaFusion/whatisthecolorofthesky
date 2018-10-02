@@ -17,18 +17,19 @@
     "knex": "^0.15.2",
     "nearest-color": "^0.4.2",
     "node": "^10.11.0",
-    "sqlite3": "^4.0.2"
+    "pg": "^7.4.3"
   },
   "bugs": {
     "url": "https://github.com/LaikaFusion/whatisthecolorofthesky/issues"
   },
   "homepage": "https://github.com/LaikaFusion/whatisthecolorofthesky#readme",
   "devDependencies": {
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.18.4",
+    "sqlite3": "^4.0.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
