@@ -17,7 +17,6 @@ class Result extends Component {
         return (
             <div className="App">
                 <div className="result"></div>
-                ::
                 {this.state.result}
             </div>
         );

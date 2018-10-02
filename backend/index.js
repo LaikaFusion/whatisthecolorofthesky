@@ -65,7 +65,10 @@ app.post("/imgur", async (req, res) => {
       return;
     });
 });
-
+app.get("/colorrefresh", (req, res) => {
+  colorCompare.getAllColors();
+  res.send("Refresh");
+});
 app.get("/", (req, res) => {
   res.send("Wrong endpoint");
 });

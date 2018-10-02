@@ -1,5 +1,5 @@
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable("sky_table", function(sky) {
+  return knex.schema.createTable("sky", function(sky) {
     sky.increments();
 
     sky.string("color1").notNullable();
@@ -13,5 +13,5 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTableIfExists("sky_table");
+  return knex.schema.dropTableIfExists("sky");
 };
