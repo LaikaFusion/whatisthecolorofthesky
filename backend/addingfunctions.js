@@ -28,6 +28,7 @@ module.exports={
         colorObj[`color${index + 1}`] = e;
       });
       try {
+        console.log(colorObj);
         return await dbHelpers.addSky(colorObj);
       } catch (err) {
         console.log(err);
