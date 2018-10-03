@@ -23,6 +23,7 @@ app.post("/imgur", async (req, res) => {
     res.status(403).json({ error: "invalid pass" });
     return;
   }
+  req.setTimeout(500000);
   if (!req.body.pages) {
     req.body.pages = 1;
   }

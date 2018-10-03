@@ -14,15 +14,15 @@ let imgur = async pages => {
   if (!pages) {
     pages = 1;
   }
-  for (let i = 0; i <= pages-1; i++) {
+  // for (let i = 0; i <= pages-1; i++) {
     try {
-      imgArray = await imgurAPIrequest(imgArray, i);
+      imgArray = await imgurAPIrequest(imgArray, pages);
     } catch (err) {
       console.log(err);
       return;
     }
-  }
-  console.log(imgArray.length);
+  // }
+  // console.log(imgArray.length);
 return imgArray;
 };
 
