@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Result from "./components/Result/Result";
 import FullSizeSelector from "./components/FullSizeSelector";
+import axios from "axios";
 
 class App extends Component {
   state = {
@@ -18,7 +19,18 @@ class App extends Component {
   colorSelection = color => {
     this.setState({ color: color });
   };
-
+  sendRequest = () => {
+    axios
+      .post(`${process.env.REACT_APP_URL}/sky/`, {
+        color: this.state.color.hex
+      })
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  };
   render() {
     return (
       <div
@@ -28,11 +40,15 @@ class App extends Component {
           borderColor: this.state.color.hex
         }}
       >
-        <FullSizeSelector
-          color={this.state.color}
-          colorSelection={this.colorSelection}
-        />
-        <Result />
+        {this.state.mode === "intial" ? (
+          <FullSizeSelector
+            color={this.state.color}
+            colorSelection={this.colorSelection}
+            sendRequest={this.sendRequest}
+          />
+        ) : (
+          <Result />
+        )}
       </div>
     );
   }

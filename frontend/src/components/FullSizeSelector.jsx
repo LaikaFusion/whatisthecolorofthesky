@@ -13,7 +13,9 @@ class FullSizeSelector extends Component {
           color={this.props.color.hex}
           onChange={this.props.colorSelection}
         />
-        <button className="twoREMbottom">Pick</button>
+        <button onClick={this.props.sendRequest} className="twoREMbottom">
+          Pick
+        </button>
       </div>
     );
   }
