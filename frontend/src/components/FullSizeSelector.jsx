@@ -5,25 +5,15 @@ class FullSizeSelector extends Component {
   render() {
     return (
       <div>
-        <i className="fas fa-cloud" />
-        <br />
-        <br />
-        <br />
-        <br />
+        <i className="fas fa-cloud colorCloud" />
         <h1>Find Your Sky</h1>
-        <p>Choose a Color:</p>
-        <br />
-        <br />
+        <p className="twoREMbottom">Choose a Color:</p>
         <SliderPicker
-          className="picker"
+          className="twoREMbottom picker"
           color={this.props.color.hex}
           onChange={this.props.colorSelection}
         />
-        <br />
-        <br />
-        <button>Pick</button>
-        <br />
-        <br />
+        <button className="twoREMbottom">Pick</button>
       </div>
     );
   }
