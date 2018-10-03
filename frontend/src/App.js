@@ -5,7 +5,7 @@ import Result from "./components/Result/Result";
 
 class App extends Component {
   state = {
-    color: ""
+    color: "#0094ff"
   };
 
   colorSelection = color => {
