@@ -4,7 +4,7 @@ class Result extends Component {
   render() {
     return (
       <div className="result">
-        <img src={this.props.url} />
+        <img alt="Sky" src={this.props.url} />
       </div>
     );
   }

@@ -23,7 +23,7 @@ class App extends Component {
   };
   sendRequest = () => {
     axios
-      .post(`${process.env.REACT_APP_URL}/sky/`, {
+      .post(`${process.env.REACT_APP_URL_FOR_API}/sky/`, {
         color: this.state.color.hex
       })
       .then(response => {
