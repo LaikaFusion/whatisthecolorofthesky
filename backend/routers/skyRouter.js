@@ -62,17 +62,35 @@ router.post("/add", async (req, res) => {
     });
 });
 
-router.get("/:id", async (req, res) => {
-  try {
-    let results = await dbHelpers.getSky(req.params.id);
-    if (results.length === 0) {
-      res.status(400).json({ error: "That ID does not exist" });
+router.post("/addraw", async (req, res) => {
+  let urlList = JSON.parse(req.body.images);
+  let dbAdds = await urlList.map(async e => {
+    try {
+      return await dbHelpers.addSky(e);
+    } catch (err) {
+      console.log(err);
       return;
     }
-    res.status(200).json(results);
-  } catch (err) {
-    res.status(500).json(err);
-  }
+  });
+  Promise.all(dbAdds)
+    .then(val => {
+      let count = 0;
+      val.forEach(e => {
+        if (!e) {
+          count++;
+        }
+      });
+      res.status(200).json({ message: `Success with ${count} failures` });
+      return;
+    })
+    .catch(function(err) {
+      if (res.headersSent) {
+        return;
+      }
+      res.status(500).json({ error: err });
+      console.log(err);
+      return;
+    });
 });
 
 module.exports = router;
