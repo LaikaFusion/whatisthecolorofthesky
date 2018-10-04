@@ -45,7 +45,7 @@ img {
   left: 0;
   bottom: 0;
   width: 30vh;
-  height: 15vh;
+  height: 10vh;
   background: white;
   z-index: 12;
   padding: 1em;
@@ -174,10 +174,10 @@ p {
 }
 .titleMini {
   color: black;
-  margin-top: -3em;
+  margin-top: -2.7em;
   margin-bottom: 1.3em;
   font-weight: bold;
 }
 .hiddenMinipicker {
-  bottom: -12vh;
+  bottom: -14vh;
 }
