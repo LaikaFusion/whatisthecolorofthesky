@@ -27,3 +27,4 @@ yarn.lock
 /db/*.sqlite3
 *.sqlite3
 
+ultraseed.js

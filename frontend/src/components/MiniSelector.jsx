@@ -36,6 +36,7 @@ class MiniSelector extends Component {
         >
           Choose a color:
         </div>
+        {/* if you don't give this .hsl the last bottom selector won't work */}
         <SliderPicker
           className="picker"
           color={this.props.color.hsl}
