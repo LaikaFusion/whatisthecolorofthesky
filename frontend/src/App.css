@@ -1,6 +1,10 @@
 .App {
   text-align: center;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .picker {
@@ -15,6 +19,7 @@
   margin-bottom: 2rem;
 }
 .result {
+  border-radius: 4px;
   object-fit: contain;
   z-index: 6;
   position: fixed;
@@ -31,4 +36,119 @@ img {
   object-fit: scale-down;
   overflow: hidden;
   display: block;
+}
+.miniPicker {
+  border-radius: 4px;
+  position: fixed;
+  bottom: -5vh;
+  left: 0;
+  width: 30vh;
+  height: 20vh;
+  background: white;
+  z-index: 12;
+  padding: 1em;
+}
+.miniButton {
+  margin-top: 1em;
+}
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button,
+.button {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  -moz-transition: background-color 0.2s ease-in-out,
+    border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  -webkit-transition: background-color 0.2s ease-in-out,
+    border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  -ms-transition: background-color 0.2s ease-in-out,
+    border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out,
+    color 0.2s ease-in-out;
+  display: inline-block;
+  height: 2.75em;
+  line-height: 2.75em;
+  padding: 0 1.5em;
+  background-color: transparent;
+  border-radius: 4px;
+  border: solid 1px #c8cccf;
+  color: #414f57 !important;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+button:hover,
+.button:hover {
+  border-color: #ff7496;
+  color: #ff7496 !important;
+}
+
+input[type="submit"].icon,
+input[type="reset"].icon,
+input[type="button"].icon,
+button.icon,
+.button.icon {
+  padding-left: 1.35em;
+}
+
+input[type="submit"].icon:before,
+input[type="reset"].icon:before,
+input[type="button"].icon:before,
+button.icon:before,
+.button.icon:before {
+  margin-right: 0.5em;
+}
+
+input[type="submit"].fit,
+input[type="reset"].fit,
+input[type="button"].fit,
+button.fit,
+.button.fit {
+  width: 100%;
+}
+
+input[type="submit"].small,
+input[type="reset"].small,
+input[type="button"].small,
+button.small,
+.button.small {
+  font-size: 0.8em;
+}
+
+input[type="submit"].large,
+input[type="reset"].large,
+input[type="button"].large,
+button.large,
+.button.large {
+  font-size: 1.35em;
+}
+
+input[type="submit"].disabled,
+input[type="submit"]:disabled,
+input[type="reset"].disabled,
+input[type="reset"]:disabled,
+input[type="button"].disabled,
+input[type="button"]:disabled,
+button.disabled,
+button:disabled,
+.button.disabled,
+.button:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+.fsSelector {
+  background-color: white;
+  margin: auto;
+  border-radius: 4px;
+  padding: 3em;
+  z-index: 2;
 }

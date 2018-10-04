@@ -4,16 +4,20 @@ import { SliderPicker } from "react-color";
 class FullSizeSelector extends Component {
   render() {
     return (
-      <div>
+      <div className="fsSelector">
         <i className="fas fa-cloud colorCloud" />
         <h1>Find Your Sky</h1>
         <p className="twoREMbottom">Choose a Color:</p>
         <SliderPicker
           className="twoREMbottom picker"
-          color={this.props.color.hex}
+          color={this.props.color.hsl}
           onChange={this.props.colorSelection}
         />
-        <button onClick={this.props.sendRequest} className="twoREMbottom">
+        <button
+          type="button"
+          onClick={this.props.sendRequest}
+          className="twoREMbottom"
+        >
           Pick
         </button>
       </div>

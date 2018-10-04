@@ -3,6 +3,7 @@ import "./App.css";
 import Result from "./components/Result/Result";
 import FullSizeSelector from "./components/FullSizeSelector";
 import axios from "axios";
+import MiniSelector from "./components/MiniSelector";
 
 class App extends Component {
   state = {
@@ -21,12 +22,12 @@ class App extends Component {
     this.setState({ color: color });
   };
   sendRequest = () => {
+    console.log(`Test`);
     axios
       .post(`${process.env.REACT_APP_URL}/sky/`, {
         color: this.state.color.hex
       })
       .then(response => {
-        console.log(response.data.url);
         this.setState({
           mode: "results",
           url: response.data.url
@@ -52,7 +53,14 @@ class App extends Component {
             sendRequest={this.sendRequest}
           />
         ) : (
-          <Result url={this.state.url} />
+          <div>
+            <Result url={this.state.url} />
+            <MiniSelector
+              color={this.state.color}
+              colorSelection={this.colorSelection}
+              sendRequest={this.sendRequest}
+            />
+          </div>
         )}
       </div>
     );
