@@ -71,13 +71,14 @@ img {
   position: fixed;
   left: 0;
   bottom: 0;
-  width: 30vh;
-  height: 20vh;
+  width: 18em;
+  height: 16em;
   background: white;
   z-index: 12;
   padding: 1em;
   transition: all 0.3s ease-out;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  box-sizing: border-box;
 }
 .miniButton {
   margin-top: 1em;
@@ -209,6 +210,6 @@ p {
   font-weight: bold;
 }
 .hiddenMinipicker {
-  bottom: -24vh;
+  transform: translateY(90%);
   transition: all 0.3s ease-out;
 }
