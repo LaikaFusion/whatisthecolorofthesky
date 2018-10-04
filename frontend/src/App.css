@@ -42,10 +42,10 @@ img {
 .miniPicker {
   border-radius: 4px;
   position: fixed;
-  bottom: -5vh;
   left: 0;
+  bottom: 0;
   width: 30vh;
-  height: 20vh;
+  height: 15vh;
   background: white;
   z-index: 12;
   padding: 1em;
@@ -171,4 +171,13 @@ h1 {
 }
 p {
   font-weight: bold;
+}
+.titleMini {
+  color: black;
+  margin-top: -3em;
+  margin-bottom: 1.3em;
+  font-weight: bold;
+}
+.hiddenMinipicker {
+  bottom: -12vh;
 }
