@@ -13,7 +13,8 @@ class App extends Component {
       oldHue: 206.88311688311688,
       rgb: { r: 0, g: 141, b: 255, a: 1 }
     },
-    mode: "intial"
+    mode: "intial",
+    url: ""
   };
 
   colorSelection = color => {
@@ -24,8 +25,12 @@ class App extends Component {
       .post(`${process.env.REACT_APP_URL}/sky/`, {
         color: this.state.color.hex
       })
-      .then(function(response) {
-        console.log(response);
+      .then(response => {
+        console.log(response.data.url);
+        this.setState({
+          mode: "results",
+          url: response.data.url
+        });
       })
       .catch(function(error) {
         console.log(error);
@@ -47,7 +52,7 @@ class App extends Component {
             sendRequest={this.sendRequest}
           />
         ) : (
-          <Result />
+          <Result url={this.state.url} />
         )}
       </div>
     );

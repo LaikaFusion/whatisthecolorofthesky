@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  position: relative;
 }
 
 .picker {
@@ -12,4 +13,22 @@
 }
 .twoREMbottom {
   margin-bottom: 2rem;
+}
+.result {
+  object-fit: contain;
+  z-index: 6;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2em solid white;
+  /* width: 90vw; */
+  /* height: 90vh; */
+}
+img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: scale-down;
+  overflow: hidden;
+  display: block;
 }
