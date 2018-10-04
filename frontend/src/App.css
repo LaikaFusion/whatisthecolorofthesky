@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Mali");
+
 .App {
   text-align: center;
   position: relative;
@@ -151,4 +153,22 @@ button:disabled,
   border-radius: 4px;
   padding: 3em;
   z-index: 2;
+}
+h1 {
+  color: #313f47;
+  line-height: 1.5;
+  margin: 0 0 0.75em 0;
+  font-size: 1.85em;
+  letter-spacing: 0.22em;
+  margin: 0 0 0.525em 0;
+  font-family: "Mali", cursive;
+  font-weight: bold;
+}
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 1.65em;
+  }
+}
+p {
+  font-weight: bold;
 }
