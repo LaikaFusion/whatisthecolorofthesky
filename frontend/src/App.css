@@ -10,7 +10,24 @@
 }
 
 .picker {
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 10em;
+  flex-direction: column;
+}
+.hue {
+  position: relative;
+
+  width: 100%;
+  height: 1em;
+  margin-bottom: 1em;
+}
+.saturation {
+  position: relative;
+  width: 100%;
+  height: 7em;
 }
 
 .colorCloud {
@@ -45,7 +62,7 @@ img {
   left: 0;
   bottom: 0;
   width: 30vh;
-  height: 10vh;
+  height: 20vh;
   background: white;
   z-index: 12;
   padding: 1em;
@@ -179,5 +196,5 @@ p {
   font-weight: bold;
 }
 .hiddenMinipicker {
-  bottom: -14vh;
+  bottom: -24vh;
 }
