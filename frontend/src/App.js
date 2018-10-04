@@ -22,7 +22,6 @@ class App extends Component {
     this.setState({ color: color });
   };
   sendRequest = () => {
-    console.log(`Test`);
     axios
       .post(`${process.env.REACT_APP_URL}/sky/`, {
         color: this.state.color.hex
