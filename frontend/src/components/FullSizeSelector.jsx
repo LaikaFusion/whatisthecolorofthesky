@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { SliderPicker } from "react-color";
+import CustomSlider from "./CustomSlider";
 
 class FullSizeSelector extends Component {
   render() {
@@ -8,8 +8,9 @@ class FullSizeSelector extends Component {
         <i className="fas fa-cloud colorCloud" />
         <h1>Find Your Sky</h1>
         <p className="twoREMbottom">Choose a Color:</p>
-        <SliderPicker
-          className="twoREMbottom picker"
+        {/* if you don't give this .hsl the last bottom selector won't work */}
+        <CustomSlider
+          className="twoREMbottom"
           color={this.props.color.hsl}
           onChange={this.props.colorSelection}
         />

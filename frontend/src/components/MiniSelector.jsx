@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { SliderPicker } from "react-color";
+import CustomSlider from "./CustomSlider";
 
 class MiniSelector extends Component {
   constructor(props) {
@@ -33,11 +33,19 @@ class MiniSelector extends Component {
             });
           }}
           className="titleMini"
+          style={{
+            color:
+              (this.props.color.hsl.l + 0.05) / (0.0 + 0.05) >
+              (1.0 + 0.05) / (this.props.color.hsl.l + 0.05)
+                ? "#000000 "
+                : "#ffffff"
+          }}
         >
           Choose a color:
         </div>
-        <SliderPicker
-          className="picker"
+        {/* if you don't give this .hsl the last bottom selector won't work */}
+        <CustomSlider
+          className=""
           color={this.props.color.hsl}
           onChange={this.props.colorSelection}
         />

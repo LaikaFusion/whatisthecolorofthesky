@@ -1,5 +1,14 @@
 @import url("https://fonts.googleapis.com/css?family=Mali");
 
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .App {
   text-align: center;
   position: relative;
@@ -10,7 +19,24 @@
 }
 
 .picker {
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 10em;
+  flex-direction: column;
+}
+.hue {
+  position: relative;
+
+  width: 100%;
+  height: 1em;
+  margin-bottom: 1em;
+}
+.saturation {
+  position: relative;
+  width: 100%;
+  height: 7em;
 }
 
 .colorCloud {
@@ -29,6 +55,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   border: 2em solid white;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   /* width: 90vw; */
   /* height: 90vh; */
 }
@@ -45,10 +72,12 @@ img {
   left: 0;
   bottom: 0;
   width: 30vh;
-  height: 10vh;
+  height: 20vh;
   background: white;
   z-index: 12;
   padding: 1em;
+  transition: all 0.3s ease-out;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 }
 .miniButton {
   margin-top: 1em;
@@ -153,6 +182,7 @@ button:disabled,
   border-radius: 4px;
   padding: 3em;
   z-index: 2;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 h1 {
   color: #313f47;
@@ -179,5 +209,6 @@ p {
   font-weight: bold;
 }
 .hiddenMinipicker {
-  bottom: -14vh;
+  bottom: -24vh;
+  transition: all 0.3s ease-out;
 }
