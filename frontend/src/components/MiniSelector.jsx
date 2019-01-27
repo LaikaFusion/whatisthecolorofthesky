@@ -36,7 +36,7 @@ class MiniSelector extends Component {
           style={{
             color:
               (this.props.color.hsl.l + 0.05) / (0.0 + 0.05) >
-              (1.0 + 0.05) / (this.props.color.hsl.l + 0.05)
+              (2 + 0.1) / (this.props.color.hsl.l + 0.1)
                 ? "#000000 "
                 : "#ffffff"
           }}
