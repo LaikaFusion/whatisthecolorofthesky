@@ -30,7 +30,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "heroku":"git push heroku master"
+    "heroku": "git push heroku master"
   },
   "keywords": [],
   "author": "",

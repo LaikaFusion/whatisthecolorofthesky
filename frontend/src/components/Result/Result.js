@@ -4,7 +4,11 @@ class Result extends Component {
   render() {
     return (
       <div className="result">
-        <img alt="Sky" src={this.props.url} />
+        {this.props.mode === "results" ? (
+          <img alt="Sky" src={this.props.url} />
+        ) : (
+          <div className="loadingText">{this.props.mode ==="loading" ?"Loading":"Error"}</div>
+        )}
       </div>
     );
   }

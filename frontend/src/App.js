@@ -22,6 +22,9 @@ class App extends Component {
     this.setState({ color: color });
   };
   sendRequest = () => {
+    this.setState({
+      mode: "loading"
+    });
     axios
       .post(`${process.env.REACT_APP_URL}/sky/`, {
         color: this.state.color.hex
@@ -33,6 +36,9 @@ class App extends Component {
         });
       })
       .catch(function(error) {
+        this.setState({
+          mode: "error"
+        });
         console.log(error);
       });
   };
@@ -53,7 +59,7 @@ class App extends Component {
           />
         ) : (
           <div>
-            <Result url={this.state.url} />
+            <Result url={this.state.url} mode={this.state.mode} />
             <MiniSelector
               color={this.state.color}
               colorSelection={this.colorSelection}

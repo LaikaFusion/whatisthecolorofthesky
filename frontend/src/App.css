@@ -213,3 +213,13 @@ p {
   transform: translateY(90%);
   transition: all 0.3s ease-out;
 }
+.loadingText{
+  color: black;
+  background-color:white;
+  width: 30vh;
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+}
