@@ -41,7 +41,9 @@ class MiniSelector extends Component {
                 : "#ffffff"
           }}
         >
-          Choose a color:
+          <span />
+          <span className="titleChoose">Choose a color: </span>{" "}
+          {this.state.hidden ? <span>&#9660;</span> : <span>&#9650;</span>}
         </div>
         {/* if you don't give this .hsl the last bottom selector won't work */}
         <CustomSlider

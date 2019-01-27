@@ -208,6 +208,8 @@ p {
   margin-top: -2.7em;
   margin-bottom: 1.3em;
   font-weight: bold;
+  display:flex;
+  justify-content: space-between;
 }
 .hiddenMinipicker {
   transform: translateY(90%);
