@@ -218,7 +218,7 @@ p {
 .loadingText {
   /* color: black; */
   background-color: white;
-  width: 30vh;
+ /* width: 30vh;*/
   height: 30vh;
   display: flex;
   justify-content: center;
